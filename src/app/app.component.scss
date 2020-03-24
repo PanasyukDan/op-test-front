@@ -1,0 +1,14 @@
+$app-bar-height: 64px;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.container {
+  padding: #{$app-bar-height};
+  background: #f8f8f8;
+}

@@ -1,0 +1,20 @@
+<mat-form-field class="filter-input">
+  <mat-label>Filter</mat-label>
+  <input matInput placeholder="Filter" (input)="filterChanged($event.target)">
+</mat-form-field>
+<div *ngIf="isLoading" class="message">Loading beers...</div>
+<div *ngIf="beers.length>0">
+  <app-beer-card [beers]=beers></app-beer-card>
+</div>
+<div *ngIf="beers.length==0 && !isLoading" class="message" style="">
+  No beers found
+</div>
+
+<div class="footer">
+  <mat-paginator [length]="length"
+                 [pageSize]="pageSize"
+                 [pageIndex]="pageIndex"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="onPageEvent($event)">
+  </mat-paginator>
+</div>

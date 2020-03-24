@@ -1,0 +1,7 @@
+<div *ngIf="isLoading" class="message">Loading beers...</div>
+<div *ngIf="beers.length>0">
+  <app-beer-card [beers]=beers></app-beer-card>
+</div>
+<div *ngIf="beers.length==0 && !isLoading" class="message" style="">
+  No favorite beers found
+</div>
