@@ -1,0 +1,21 @@
+<mat-card class="card" *ngFor="let beer of beers">
+  <h2>{{beer.name}}</h2>
+  <mat-card-content>
+    <img class="card-image" [src]=beer.imageUrl onError="this.src='../../assets/no_photo.png'" [alt]=beer.name>
+    <div class="properties">
+      <div><b>ABV:</b> {{beer.abv}}%</div>
+      <div><b>IBU:</b> {{beer.ibu}}</div>
+      <div>{{beer.volume}} {{beer.volumeUnit}}</div>
+    </div>
+    <div class="description">
+      {{beer.description}}
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon"
+            (click)="markFavorite(beer)">
+      <mat-icon *ngIf="beer.isFavorite">favorite</mat-icon>
+      <mat-icon *ngIf="!beer.isFavorite">favorite_border</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
